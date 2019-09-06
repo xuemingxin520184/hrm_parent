@@ -1,6 +1,5 @@
 package com.xue.hrm;
 
-import com.xue.hrm.SysManage9001Application;
 import com.xue.hrm.domain.Systemdictionary;
 import com.xue.hrm.service.ISystemdictionaryService;
 import org.junit.Test;
@@ -16,7 +15,7 @@ public class XxxServiceTest {
     private ISystemdictionaryService systemdictionaryService;
 
     @Test
-    public void test()throws Exception{
+    public void test() throws Exception {
         for (Systemdictionary systemdictionary : systemdictionaryService.selectList(null)) {
             System.out.println(systemdictionary);
         }

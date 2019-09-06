@@ -15,6 +15,7 @@
         <result column="path" property="path" />
         <result column="totalCount" property="totalCount" />
     </resultMap>
+
     <sql id="whereSql">
         <where>
             <if test="query.keyword!=null and query.keyword!=''">
@@ -24,13 +25,14 @@
     </sql>
     <select id="loadListPage" resultMap="CourseTypeMap" parameterType="CourseTypeQuery">
         SELECT
-        ct.*, pct.id ppid,
-        pct. NAME pname
+            ct.*, pct.id ppid,
+            pct. NAME pname
         FROM
-        t_course_type ct
+            t_course_type ct
         LEFT JOIN t_course_type pct ON ct.pid = pct.id
         <include refid="whereSql"></include>
     </select>
+
     <resultMap id="CourseTypeMap" type="CourseType">
         <id column="id" property="id" />
         <result column="createTime" property="createTime" />
@@ -47,4 +49,5 @@
             <result column="pname" property="name" />
         </association>
     </resultMap>
+
 </mapper>
